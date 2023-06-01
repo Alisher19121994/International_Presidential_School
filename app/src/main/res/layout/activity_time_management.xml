@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".activities.TimeManagementActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:background="#03A9F4"
+        android:id="@+id/timeTbLayout_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabGravity="fill"
+        app:tabTextColor="#EDE4E4"
+        app:tabSelectedTextColor="@color/black"
+        app:tabIndicatorColor="#263DBD"
+        tools:ignore="SpeakableTextPresentCheck"
+        >
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/timeViewPager_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+</LinearLayout>

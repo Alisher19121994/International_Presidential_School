@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_homeFragment_id"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/menu_ratingPageFragment_id"
+        android:title="Rating"
+        android:icon="@drawable/baseline_star_purple500_24"/>
+    <item
+        android:id="@+id/menu_EducatorsFragment_id"
+        android:title="Educator"
+        android:icon="@drawable/baseline_pending_actions_24"/>
+    <item
+        android:id="@+id/menu_timeManageFragment_id"
+        android:title="Manager"
+        android:icon="@drawable/baseline_view_timeline_24"/>
+    <item
+        android:id="@+id/menu_profileFragment_id"
+        android:title="More"
+        android:icon="@drawable/baseline_more_horiz_24"/>
+</menu>
