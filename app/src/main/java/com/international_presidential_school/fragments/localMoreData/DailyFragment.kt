@@ -5,11 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.international_presidential_school.R
+import com.international_presidential_school.fragments.localMoreData.database.PlanDatabase
+import com.international_presidential_school.models.localDataBase.PlanData
 
 
 class DailyFragment : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,75 +24,19 @@ class DailyFragment : Fragment() {
         return view
     }
     private fun initViews(view: View) {
-//        goalList = ArrayList()
-//        recyclerView = view.findViewById(R.id.recyclePlan_id)
-//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        goalAdapter = GoalAdapter(goalList, this)
-//        recyclerView.adapter = goalAdapter
-//
-//
-//        fetchData()
-//        saveData(view)
-//
-//        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
-//            override fun onMove(
-//                recyclerView: RecyclerView,
-//                viewHolder: RecyclerView.ViewHolder,
-//                target: RecyclerView.ViewHolder
-//            ): Boolean {
-//                return false
-//            }
-//            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                val deletedGoal: GoalData = goalList[viewHolder.adapterPosition]
-//                val position = viewHolder.adapterPosition
-//                goalList.removeAt(viewHolder.adapterPosition)
-//                deletedGoal.id?.let { delete ->
-//                    AppDatabase.getInstance(requireContext())?.goalDao()?.delete(delete)
-//                }
-//
-//
-//                goalAdapter.notifyItemRemoved(viewHolder.adapterPosition)
-//                Snackbar.make(
-//                    recyclerView,
-//                    "Deleted " + deletedGoal.goalNames,
-//                    Snackbar.LENGTH_LONG
-//                )
-//                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                    val deletedGoal: GoalData = goalList[viewHolder.adapterPosition]
-//                    val position = viewHolder.adapterPosition
-//                    goalList.removeAt(viewHolder.adapterPosition)
-//                    deletedGoal.id?.let { delete ->
-//                        AppDatabase.getInstance(requireContext())?.goalDao()?.delete(delete)
-//                    }
-//
-//
-//                    goalAdapter.notifyItemRemoved(viewHolder.adapterPosition)
-//                    Snackbar.make(
-//                        recyclerView,
-//                        "Deleted " + deletedGoal.goalNames,
-//                        Snackbar.LENGTH_LONG
-//                    )
-//                }}}}
-}
+        val buttonSubmit = view.findViewById<AppCompatButton>(R.id.createPlanButton_main_id)
+        buttonSubmit?.setOnClickListener {
 
-//    private fun fetchData() {
-//        val data = AppDatabase.getInstance(requireContext())?.goalDao()?.getAll()
-//        for (i in 0 until data?.reversed()!!.size) {
-//            val goals = data[i]
-//            goalAdapter.addGoals(goals)
-//        }
-//
-//    }
+            val titleEditTExt: EditText = view.findViewById(R.id.yourPlan_main_id)
+            val descEditText: EditText = view.findViewById(R.id.planDescription_main_id)
 
-//private fun saveData(view: View) {
-//    val submitButton: AppCompatButton = view.findViewById(R.id.submitGoal_id)
-//    submitButton.setOnClickListener {
-//        val goalEditText: EditText = view.findViewById(R.id.goalField_id)
-//        val textOfGoal = goalEditText.text.toString().trim()
-//        val goalData = GoalData(textOfGoal)
-//        goalAdapter.addGoals(goalData)
-//        AppDatabase.getInstance(requireContext())?.goalDao()?.insert(goalData)
-//        Toast.makeText(requireContext(), "Saved", Toast.LENGTH_LONG).show()
-//    }
-//}
+            val textOfTitle = titleEditTExt.text.toString().trim()
+            val textOfDesc = descEditText.text.toString().trim()
+            val planData = PlanData(textOfTitle, textOfDesc)
+
+            PlanDatabase.getInstance(requireContext())?.planDao()?.insert(planData)
+            Toast.makeText(requireContext(), "Plan is saved", Toast.LENGTH_LONG).show()
+    }
+    }
+
 }
