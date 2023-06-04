@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_homeFragment_id"
+        android:title="Home"
+        android:icon="@drawable/baseline_add_home_24"/>
+
+    <item
+        android:id="@+id/menu_adminFragment_id"
+        android:title="Admin"
+        android:icon="@drawable/baseline_admin_panel_settings_24"/>
+
+    <item
+        android:id="@+id/menu_educatorsFragment_id"
+        android:title="Educator"
+        android:icon="@drawable/baseline_pending_actions_24"/>
+
+</menu>
